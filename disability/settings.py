@@ -402,7 +402,7 @@ ADMIN_TOOLS_APP_INDEX_DASHBOARD = 'record_form.dashboard.CustomAppIndexDashboard
 ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 
-DEFAULT_FILE_STORAGE = 'django_dropbox_storage.storage.DropboxStorage'
+# DEFAULT_FILE_STORAGE = 'django_dropbox_storage.storage.DropboxStorage'
 
 DROPBOX_OAUTH2_TOKEN = 'EsxPRZuSHKAAAAAAAAAAhhOb7PN0IBigbt3uXpLeXks2oHprejXatB1pQjBY-sub'
 DROPBOX_CONSUMER_KEY = 'ry2bmaido0aqoyv'
