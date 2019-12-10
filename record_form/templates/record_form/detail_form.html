@@ -1,0 +1,76 @@
+{% extends 'account/base.html' %}
+
+{% block content %}
+	<h2>{{ panel_name }}</h2>
+	<h3>{{ panel_title }}</h3>
+	<p>
+		<div>
+			<a href="{{ media }}/{{ object.passport_pic }}">
+				<img src="{{ media }}/{{ object.passport_pic }}" alt="{{ object.full_name }}">
+			</a>
+		</div>
+		<div>
+			<label>Personal code</label>
+			<span>{{ object.p_code }}</span>
+		</div>
+		<div>
+			<label>Full Name</label>
+			<span>{{ object.full_name }}</span>
+		</div>
+		<div>
+			<label>Date of birth</label>
+			<span>{{ object.date_of_birth }}</span>
+		</div>
+		<div>
+			<label>Gender</label>
+			<span>{{ object.gender }}</span>
+		</div>
+		<div>
+			<label>ID Type</label>
+			<span>{{ object.id_type }}</span>
+		</div>
+		<div>
+			<label>ID Number</label>
+			<span>{{ object.id_number }}</span>
+		</div>
+		<div>
+			<label>Mobile number</label>
+			<span>{{ object.mobile_number }}</span>
+		</div>
+		<div>
+			<label>Disability type</label>
+			<span>{{ object.disability_type }}</span>
+		</div>
+		<div>
+			<label>Community name</label>
+			<span>{{ object.community_name }}</span>
+		</div>
+		<div>
+			<label>Street name</label>
+			<span>{{ object.street_name }}</span>
+		</div>
+		<div>
+			<label>Land mark</label>
+			<span>{{ object.land_mark }}</span>
+		</div>
+		<div>
+			<label>House number</label>
+			<span>{{ object.house_number }}</span>
+		</div>
+		<div>
+			<label>Caregiver name</label>
+			<span>{{ object.caregiver_name }}</span>
+		</div>
+		<div>
+			<label>Caregiver number</label>
+			<span>{{ object.caregiver_number }}</span>
+		</div>
+	</p>
+
+	<h2>Actions</h2>
+	<ul>
+		<li>
+			<a href="{% url 'record_form:update_record' object.id %}">Edit record</a>
+		</li>
+	</ul>
+{% endblock content %}

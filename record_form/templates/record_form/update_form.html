@@ -1,0 +1,41 @@
+{% extends 'account/base.html' %}
+{% load i18n %}
+{% load bootstrap3 %}
+
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% block css_scripts %}
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+{% endblock css_scripts %}
+
+{% block content %}
+
+	{% if messages %}
+		<div class="messages">
+			<ul>
+			{% for message in messages %}
+				<li class="{{ message.tag }}">
+					{{ message }}
+				</li>
+			{% endfor %}
+			</ul>
+		</div>
+	{% endif %}
+
+	<h1>Update record</h1>
+	<form action="{% url 'record_form:update_record' object.id %}" method='POST' enctype="multipart/form-data" {% if layout != 'vertical' %}class="form-{{ layout }}"{% endif %}>
+		{% csrf_token %}
+		{% bootstrap_form form %}
+        {% buttons submit='Update' %}{% endbuttons %}
+	</form>
+	{% block javascript_code %}
+ 	  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	  <script>
+	  $( function() {
+	    $( "#id_date_of_birth" ).datepicker();
+	  } );
+	  </script>
+	 {% endblock javascript_code %}
+{% endblock content %}

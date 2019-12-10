@@ -1,0 +1,55 @@
+{% extends 'account/base.html' %}
+{% load i18n %}
+{% load bootstrap3 %}
+
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% block css_scripts %}
+	<link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+{% endblock css_scripts %}
+
+
+{% block content %}
+<div class="panel-heading">
+  <h3 class="panel-title">{{ panel_name}}</h3>
+</div>
+
+<div class="panel-body">
+	<table id="myTable" class="table table-striped table-hover" style="width:100%">
+		<thead>
+			<th>#</th>
+			<th>Full name</th>
+			<th>Date of Birth</th>
+			<th>Gender</th>
+			<th>Disability type</th>
+			<th>Name of caregiver</th>
+			<th>Action</th>
+		</thead>
+		<tbody>
+			{% for person in object_list %}
+				<tr>
+					<td>{{ person.p_code }}</td>
+					<td>{{ person.full_name }}</td>
+					<td>{{ person.date_of_birth }}</td>
+					<td>{{ person.gender }}</td>
+					<td>{{ person.disability_type }}</td>
+					<td>{{ person.caregiver_name }}</td>
+					<td>
+						<a href="{% url 'record_form:record_detail' person.id %}">Details</a>
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+{% block javascript_code %}
+ 	  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	  <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+	  <script type="text/javascript">
+	  	$(document).ready( function () {
+		    $('#myTable').DataTable();
+		} );
+	  </script>
+	 {% endblock javascript_code %}
+{% endblock content %}

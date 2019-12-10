@@ -1,0 +1,44 @@
+{% extends 'account/base.html' %}
+{% load i18n %}
+{% load bootstrap3 %}
+
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% block css_scripts %}
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+{% endblock css_scripts %}
+
+{% if messages %}
+<div class="messages">
+	<ul>
+	{% for message in messages %}
+		<li class="{{ message.tag }}alert alert-success alert-dismissable">
+			{{ message }}
+		</li>
+	{% endfor %}
+	</ul>
+</div>
+{% endif %}
+
+{% block content %}
+
+	<div class="panel-body">
+		<h1>Create new record</h1>
+		<form action="" method='POST' role='form' class="form" enctype="multipart/form-data" {% if layout != 'vertical' %}class="form-{{ layout }}"{% endif %}>
+			{% csrf_token %}
+			{% bootstrap_form form %}
+	        {% buttons submit='Submit' button_class='btn-primary' %}{% endbuttons %}
+		</form>
+	</div>
+
+	 {% block javascript_code %}
+ 	  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	  <script>
+	  $( function() {
+	    $( "#id_date_of_birth" ).datepicker();
+	  } );
+	  </script>
+	 {% endblock javascript_code %}
+{% endblock content %}
