@@ -96,7 +96,7 @@ class PersonInfo(models.Model):
         max_length=100, help_text='Provide full name of care giver')
     caregiver_number = models.CharField(
         validators=[phone_regex], max_length=17)
-    passport_pic = models.ImageField(
+    passport_pic = models.FileField(
         upload_to='passport/%y%m%d/', blank=False, null=False)
     # creator = models.ForeignKey(User, on_delete=models.CASCADE,)
 
