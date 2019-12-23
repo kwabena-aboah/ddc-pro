@@ -97,7 +97,7 @@ class PersonInfo(models.Model):
     caregiver_number = models.CharField(
         validators=[phone_regex], max_length=17)
     passport_pic = models.FileField(
-        upload_to='passport/%y%m%d/', blank=False, null=False)
+        upload_to='passport/%y%m%d/', blank=True, null=True)
     # creator = models.ForeignKey(User, on_delete=models.CASCADE,)
 
     class Meta:
