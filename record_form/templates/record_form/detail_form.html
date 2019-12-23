@@ -7,13 +7,12 @@
 		<div>
 			{% if object.passport_pic.url %}
 			<a href="#">
-				<img src="{{ object.passport_pic.url }}" alt="{{ object.full_name }}">
+				<img src="{{ object.passport_pic.url }}" alt="{{ object.full_name }}" height="70px">
 			</a>
 			{% endif %}
 		</div>
 		<div>
-			<label>Personal code</label>
-			<span>{{ object.p_code }}</span>
+			<label>Personal Informations</label>
 		</div>
 		<div>
 			<label>Full Name</label>
