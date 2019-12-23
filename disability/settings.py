@@ -154,6 +154,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'whitenoise.runserver_nostatic',
+    'storages',
 ]
 
 try:
@@ -403,7 +404,7 @@ ADMIN_TOOLS_APP_INDEX_DASHBOARD = 'record_form.dashboard.CustomAppIndexDashboard
 ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 
-DEFAULT_FILE_STORAGE = 'django_dropbox_storage.storage.DropboxStorage'
+DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
 
 DROPBOX_OAUTH2_TOKEN = 'EsxPRZuSHKAAAAAAAAAAiFX0K0X8WAm4RSu8WcLryb1buA7E-JFAB4ESTxRFIsxk'
 DROPBOX_CONSUMER_KEY = 'vimym2pp5cq8dx1'
